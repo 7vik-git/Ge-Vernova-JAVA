@@ -1,4 +1,4 @@
-package com.gevernova.constructos;
+package com.gevernova.constructors;
 // Models a vehicle registration system
 public class Vehicle {
     private String ownerName;

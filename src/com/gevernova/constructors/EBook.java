@@ -1,4 +1,4 @@
-package com.gevernova.constructos;
+package com.gevernova.constructors;
 // Base Book class
 class Book {
     public String ISBN;          // accessible everywhere
