@@ -1,4 +1,4 @@
-package com.gevernova.Constructos;
+package com.gevernova.constructos;
 // Represents a product in inventory
 public class Product {
     private String productName;

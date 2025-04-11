@@ -1,4 +1,4 @@
-package com.gevernova.Constructos;
+package com.gevernova.constructos;
 // Models a car rental
 public class CarRental {
     private String customerName;

@@ -1,4 +1,4 @@
-package com.gevernova.Constructos;
+package com.gevernova.constructos;
 // Models a hotel booking
 public class HotelBooking {
     private String guestName;
