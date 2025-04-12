@@ -1,120 +1,96 @@
 package com.gevernova.encapsulation;
-import java.util.*;
 
-// Interface for department behavior
 interface Department {
     void assignDepartment(String dept);
     String getDepartmentDetails();
 }
 
-// Abstract class for common employee features
-abstract class Employee implements Department {
-    // Encapsulated fields
+abstract class Employee {
     private int employeeId;
     private String name;
     private double baseSalary;
-    private String department;
 
-    // Constructor using encapsulation
     public Employee(int employeeId, String name, double baseSalary) {
         this.employeeId = employeeId;
         this.name = name;
         this.baseSalary = baseSalary;
     }
 
-    // Abstract method for subclasses
-    public abstract double calculateSalary();
-
-    // Concrete method
-    public void displayDetails() {
-        System.out.println("Employee ID: " + employeeId);
-        System.out.println("Name: " + name);
-        System.out.println("Base Salary: ₹" + baseSalary);
-        System.out.println("Department: " + department);
-        System.out.println("Total Salary: ₹" + calculateSalary());
-    }
-
-    // Encapsulation: Getters and Setters
-    public int getEmployeeId() {
-        return employeeId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getBaseSalary() {
+   public double getBaseSalary() {
         return baseSalary;
     }
 
-    public void setBaseSalary(double baseSalary) {
-        this.baseSalary = baseSalary;
+    public abstract double calculateSalary();
+
+    public void displayDetails() {
+        System.out.println("ID: " + employeeId + ", Name: " + name + ", Base Salary: " + baseSalary);
+    }
+}
+
+class FullTimeEmployee extends Employee implements Department {
+    private String department;
+    private double fixedBonus;
+
+    public FullTimeEmployee(int id, String name, double baseSalary, double fixedBonus) {
+        super(id, name, baseSalary);
+        this.fixedBonus = fixedBonus;
     }
 
-    // Interface implementation
-    @Override
+    public double calculateSalary() {
+        return getBaseSalary() + fixedBonus;
+    }
+
     public void assignDepartment(String dept) {
         this.department = dept;
     }
 
-    @Override
     public String getDepartmentDetails() {
         return department;
     }
 }
 
-// Subclass: Full-time employee
-class FullTimeEmployee extends Employee {
-    private double bonus;
-
-    public FullTimeEmployee(int employeeId, String name, double baseSalary, double bonus) {
-        super(employeeId, name, baseSalary);
-        this.bonus = bonus;
-    }
-
-    @Override
-    public double calculateSalary() {
-        return getBaseSalary() + bonus;
-    }
-}
-
-// Subclass: Part-time employee
-class PartTimeEmployee extends Employee {
+class PartTimeEmployee extends Employee implements Department {
+    private String department;
     private int hoursWorked;
     private double hourlyRate;
 
-    public PartTimeEmployee(int employeeId, String name, double baseSalary, int hoursWorked, double hourlyRate) {
-        super(employeeId, name, baseSalary);
+    public PartTimeEmployee(int id, String name, double baseSalary, int hoursWorked, double hourlyRate) {
+        super(id, name, baseSalary);
         this.hoursWorked = hoursWorked;
         this.hourlyRate = hourlyRate;
     }
 
-    @Override
     public double calculateSalary() {
         return getBaseSalary() + (hoursWorked * hourlyRate);
     }
-}
 
-// Main1 class to demonstrate polymorphism
-public class EmployeeManagementSystem {
-    public static void main(String[] args) {
-        // Polymorphic list of employees
-        List<Employee> employees = new ArrayList<>();
+    public void assignDepartment(String dept) {
+        this.department = dept;
+    }
 
-        FullTimeEmployee emp1 = new FullTimeEmployee(101, "Alice", 30000, 5000);
-        emp1.assignDepartment("Engineering");
-
-        PartTimeEmployee emp2 = new PartTimeEmployee(102, "Bob", 10000, 20, 300);
-        emp2.assignDepartment("Support");
-
-        employees.add(emp1);
-        employees.add(emp2);
-
-        // Polymorphic behavior: all accessed through Employee reference
-        for (Employee emp : employees) {
-            System.out.println("-----------");
-            emp.displayDetails();
-        }
+    public String getDepartmentDetails() {
+        return department;
     }
 }
 
+public class EmployeeManagementSystem {
+    public static void main(String[] args) {
+        Employee e1 = new FullTimeEmployee(1, "JohnWick", 100000, 10000);
+        Employee e2 = new PartTimeEmployee(2, "BobTheBuilder", 10000, 20, 500);
+
+        Department d1 = (Department) e1;
+        Department d2 = (Department) e2;
+
+        d1.assignDepartment("Assassin");
+        d2.assignDepartment("Support");
+
+        Employee[] employees = {e1, e2};
+
+        for (Employee e : employees) {
+            e.displayDetails();
+            System.out.println("Salary: " + e.calculateSalary());
+            System.out.println("Department: " + ((Department) e).getDepartmentDetails());
+            System.out.println();
+        }
+    }
+}

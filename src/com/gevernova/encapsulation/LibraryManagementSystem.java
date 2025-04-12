@@ -1,117 +1,132 @@
 package com.gevernova.encapsulation;
 import java.util.*;
 
-// Interface for reservable items
 interface Reservable {
-    void reserveItem(String borrowerName);
+    void reserveItem(String borrower);
     boolean checkAvailability();
 }
 
-// Abstract class for library items
-abstract class LibraryItem implements Reservable {
-    private String itemId;
+abstract class LibraryItem {
+    private int itemId;
     private String title;
     private String author;
+    private String borrower;
 
-    // Encapsulated borrower details
-    private String borrowerName;
-    private boolean isReserved;
-
-    public LibraryItem(String itemId, String title, String author) {
+    public LibraryItem(int itemId, String title, String author) {
         this.itemId = itemId;
         this.title = title;
         this.author = author;
-        this.isReserved = false;
     }
 
-    // Abstract method to be implemented by subclasses
+    public int getItemId() { return itemId; }
+    public void setItemId(int itemId) { this.itemId = itemId; }
+
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    public String getAuthor() { return author; }
+    public void setAuthor(String author) { this.author = author; }
+
+    public String getBorrower() { return borrower; }
+    public void setBorrower(String borrower) { this.borrower = borrower; }
+
     public abstract int getLoanDuration();
 
-    // Concrete method to get details
     public void getItemDetails() {
-        System.out.println("Item ID: " + itemId);
-        System.out.println("Title: " + title);
-        System.out.println("Author: " + author);
-        System.out.println("Loan Duration: " + getLoanDuration() + " days");
-        System.out.println("Reserved: " + (isReserved ? "Yes, by " + borrowerName : "No"));
+        System.out.println("ID: " + itemId + ", Title: " + title + ", Author: " + author);
+    }
+}
+
+class Book extends LibraryItem implements Reservable {
+    private boolean isAvailable = true;
+
+    public Book(int id, String title, String author) {
+        super(id, title, author);
     }
 
-    // Encapsulation: Borrower details are not directly exposed
-    protected String getBorrowerName() {
-        return borrowerName;
+    public int getLoanDuration() {
+        return 21;
     }
 
-    // Interface implementation
-    @Override
-    public void reserveItem(String borrowerName) {
-        if (!isReserved) {
-            this.borrowerName = borrowerName;
-            isReserved = true;
-            System.out.println("Item reserved successfully for " + borrowerName);
-        } else {
-            System.out.println("Item already reserved by " + this.borrowerName);
+    public void reserveItem(String borrower) {
+        if (isAvailable) {
+            setBorrower(borrower);
+            isAvailable = false;
         }
     }
 
-    @Override
     public boolean checkAvailability() {
-        return !isReserved;
+        return isAvailable;
     }
 }
 
-// Subclass: Book
-class Book extends LibraryItem {
-    public Book(String itemId, String title, String author) {
-        super(itemId, title, author);
+class Magazine extends LibraryItem implements Reservable {
+    private boolean isAvailable = true;
+
+    public Magazine(int id, String title, String author) {
+        super(id, title, author);
     }
 
-    @Override
     public int getLoanDuration() {
-        return 14; // Books can be loaned for 14 days
+        return 7;
+    }
+
+    public void reserveItem(String borrower) {
+        if (isAvailable) {
+            setBorrower(borrower);
+            isAvailable = false;
+        }
+    }
+
+    public boolean checkAvailability() {
+        return isAvailable;
     }
 }
 
-// Subclass: Magazine
-class Magazine extends LibraryItem {
-    public Magazine(String itemId, String title, String author) {
-        super(itemId, title, author);
+class DVD extends LibraryItem implements Reservable {
+    private boolean isAvailable = true;
+
+    public DVD(int id, String title, String author) {
+        super(id, title, author);
     }
 
-    @Override
     public int getLoanDuration() {
-        return 7; // Magazines for 7 days
+        return 14;
+    }
+
+    public void reserveItem(String borrower) {
+        if (isAvailable) {
+            setBorrower(borrower);
+            isAvailable = false;
+        }
+    }
+
+    public boolean checkAvailability() {
+        return isAvailable;
     }
 }
 
-// Subclass: DVD
-class DVD extends LibraryItem {
-    public DVD(String itemId, String title, String author) {
-        super(itemId, title, author);
-    }
-
-    @Override
-    public int getLoanDuration() {
-        return 3; // DVDs for 3 days
-    }
-}
-
-// Main1 class
 public class LibraryManagementSystem {
     public static void main(String[] args) {
-        List<LibraryItem> libraryItems = new ArrayList<>();
+        LibraryItem item1 = new Book(1, "The Game of Thrones", "George RR Martin");
+        LibraryItem item2 = new Magazine(2, "Harry Potter", "Bob");
+        LibraryItem item3 = new DVD(3, "Inception", "Chris");
 
-        libraryItems.add(new Book("B001", "Clean Code", "Robert C. Martin"));
-        libraryItems.add(new Magazine("M001", "National Geographic", "Various"));
-        libraryItems.add(new DVD("D001", "Inception", "Christopher Nolan"));
+        Reservable r1 = (Reservable) item1;
+        Reservable r2 = (Reservable) item2;
+        Reservable r3 = (Reservable) item3;
 
-        // Reserve some items
-        libraryItems.get(0).reserveItem("Amit Sharma");
-        libraryItems.get(2).reserveItem("Riya Mehta");
+        r1.reserveItem("User1");
+        r2.reserveItem("User2");
+        r3.reserveItem("User3");
 
-        // Display details using polymorphism
-        for (LibraryItem item : libraryItems) {
-            System.out.println("-------------");
+        LibraryItem[] items = {item1, item2, item3};
+
+        for (LibraryItem item : items) {
             item.getItemDetails();
+            System.out.println("Loan Duration: " + item.getLoanDuration() + " days");
+            System.out.println("Available: " + ((Reservable) item).checkAvailability());
+            System.out.println();
         }
     }
 }
