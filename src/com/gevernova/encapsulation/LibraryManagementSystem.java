@@ -95,7 +95,7 @@ class DVD extends LibraryItem {
     }
 }
 
-// Main class
+// Main1 class
 public class LibraryManagementSystem {
     public static void main(String[] args) {
         List<LibraryItem> libraryItems = new ArrayList<>();

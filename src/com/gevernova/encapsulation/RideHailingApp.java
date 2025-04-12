@@ -93,7 +93,7 @@ class Auto extends Vehicles {
     }
 }
 
-// Main class
+// Main1 class
 public class RideHailingApp {
     // Method to calculate fare using polymorphism
     public static void processRide(Vehicles vehicle, double distance) {

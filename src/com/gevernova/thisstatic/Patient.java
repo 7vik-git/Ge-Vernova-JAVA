@@ -40,7 +40,7 @@ public class Patient {
         }
     }
 
-    // Main method to demonstrate functionality
+    // Main1 method to demonstrate functionality
     public static void main(String[] args) {
         Patient p1 = new Patient("P001", "Ravi Kumar", 45, "Flu");
         Patient p2 = new Patient("P002", "Sneha Roy", 32, "Fracture");

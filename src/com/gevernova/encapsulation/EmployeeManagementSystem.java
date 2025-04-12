@@ -95,7 +95,7 @@ class PartTimeEmployee extends Employee {
     }
 }
 
-// Main class to demonstrate polymorphism
+// Main1 class to demonstrate polymorphism
 public class EmployeeManagementSystem {
     public static void main(String[] args) {
         // Polymorphic list of employees

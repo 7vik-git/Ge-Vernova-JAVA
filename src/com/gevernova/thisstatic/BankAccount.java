@@ -32,7 +32,7 @@ public class BankAccount {
         }
     }
 
-    // Main method to demonstrate usage
+    // Main1 method to demonstrate usage
     public static void main(String[] args) {
         BankAccount acc1 = new BankAccount("Alice", 1001);
         BankAccount acc2 = new BankAccount("Bob", 1002);

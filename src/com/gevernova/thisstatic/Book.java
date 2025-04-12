@@ -33,7 +33,7 @@ public class Book {
         }
     }
 
-    // Main method to demonstrate functionality
+    // Main1 method to demonstrate functionality
     public static void main(String[] args) {
         Book book1 = new Book("1984", "George Orwell", "ISBN12345");
         Book book2 = new Book("To Kill a Mockingbird", "Harper Lee", "ISBN67890");

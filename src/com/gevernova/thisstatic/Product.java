@@ -37,7 +37,7 @@ public class Product {
         }
     }
 
-    // Main method to demonstrate functionality
+    // Main1 method to demonstrate functionality
     public static void main(String[] args) {
         Product product1 = new Product("P001", "Wireless Mouse", 25.99, 2);
         Product product2 = new Product("P002", "Mechanical Keyboard", 79.49, 1);

@@ -34,7 +34,7 @@ public class Vehicle {
         }
     }
 
-    // Main method to test the class
+    // Main1 method to test the class
     public static void main(String[] args) {
         Vehicle v1 = new Vehicle("John Doe", "Car", "MH12AB1234");
         Vehicle v2 = new Vehicle("Jane Smith", "Bike", "MH14XY5678");
