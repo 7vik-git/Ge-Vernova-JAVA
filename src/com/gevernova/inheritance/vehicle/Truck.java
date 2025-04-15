@@ -10,7 +10,7 @@ public class Truck extends Vehicle{
         @Override
         public void displayInfo() {
             System.out.println("Fuel Type of the Truck is : " + fuelType);
-            System.out.println("Max Load is : " + maxLoad);
-            System.out.println("Max Speed is : " + maxSpeed);
+            System.out.println("Max Load is : " + maxLoad + " tons");
+            System.out.println("Max Speed is : " + maxSpeed + " kmph");
         }
 }

@@ -10,7 +10,7 @@ public class Car extends Vehicle{
     @Override
     public void displayInfo() {
         System.out.println("Fuel Type of the Car is : "+ fuelType);
-        System.out.println("Max Speed is : " + maxSpeed);
+        System.out.println("Max Speed is : " + maxSpeed + "kmph");
         System.out.println("Seating Capacity is : " + seatCapacity);
     }
 }

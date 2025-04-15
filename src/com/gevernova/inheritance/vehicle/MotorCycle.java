@@ -10,7 +10,7 @@ public class MotorCycle extends Vehicle {
     @Override
     public void displayInfo() {
         System.out.println("Fuel Type of the MotorCycle is : " + fuelType);
-        System.out.println("Cubic Capacity of Engine is : " + cubicCapacity);
-        System.out.println("Max Speed is : " + maxSpeed);
+        System.out.println("Cubic Capacity of Engine is : " + cubicCapacity + " CC");
+        System.out.println("Max Speed is : " + maxSpeed + " kmph");
     }
 }
