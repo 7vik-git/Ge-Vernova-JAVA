@@ -1,4 +1,4 @@
-package workshoptwo.movietheatre;
+package com.gevernova.workshop.two.movietheatre;
 
 public class Movie extends Theatre{
     protected String movieName;

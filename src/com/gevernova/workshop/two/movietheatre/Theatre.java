@@ -1,4 +1,4 @@
-package workshoptwo.movietheatre;
+package com.gevernova.workshop.two.movietheatre;
 
 public abstract class Theatre {
     final static String theatreName = "PVR Cinemas";

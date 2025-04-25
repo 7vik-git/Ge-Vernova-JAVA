@@ -1,4 +1,4 @@
-package workshoptwo.movietheatre;
+package com.gevernova.workshop.two.movietheatre;
 
     public class Tickets extends Movie{
         public static void main(String[] args) {
