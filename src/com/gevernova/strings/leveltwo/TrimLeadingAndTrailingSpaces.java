@@ -29,9 +29,9 @@ public class TrimLeadingAndTrailingSpaces {
         }
     }
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
+        Scanner scanner =new Scanner(System.in);
         System.out.println("Enter a string: ");
-        String string=sc.nextLine();
+        String string=scanner.nextLine();
         int[] indexes=trimSpaces(string);
         compareTwoStrings(createString(string,indexes),usingTrimMethod(string));
     }

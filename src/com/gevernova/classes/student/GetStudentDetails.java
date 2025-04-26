@@ -1,6 +1,6 @@
-package com.gevernova.classes;
+package com.gevernova.classes.student;
 
-class GetStudentDetails{
+class GetStudentDetails {
     private String name;
     private int roll_no;
     private int marks;
@@ -13,7 +13,7 @@ class GetStudentDetails{
         this.marks = marks;
     }
 
-    public void displayDetails(){
+    public void displayDetails() {
         calculateGrade();
         System.out.println("Student Name : ");
         System.out.println(name);
@@ -26,30 +26,18 @@ class GetStudentDetails{
     }
 
     private void calculateGrade() {
-        if(marks>=90){
+        if (marks >= 90) {
             grade = "O grade";
-        }else if(marks>=80 && marks<90){
+        } else if (marks >= 80 && marks < 90) {
             grade = "A+ grade";
-        }else if(marks>=70 && marks<80){
+        } else if (marks >= 70 && marks < 80) {
             grade = "A grade";
-        }else if(marks>=60 && marks<70){
+        } else if (marks >= 60 && marks < 70) {
             grade = "B+ grade";
-        }else if(marks>=50 && marks<60){
+        } else if (marks >= 50 && marks < 60) {
             grade = "B grade";
-        }else{
+        } else {
             grade = "fail";
         }
-    }
-}
-public class StudentReport {
-    public static void main(String[] args) {
-//        System.out.println("Enter Student Name, Roll_No, Marks ");
-        GetStudentDetails student1 = new GetStudentDetails("John", 25, 91);
-        GetStudentDetails student2 = new GetStudentDetails("Wick", 19, 47);
-
-        student1.displayDetails();
-        student2.displayDetails();
-
-
     }
 }

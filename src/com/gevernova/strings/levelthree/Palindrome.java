@@ -52,13 +52,13 @@ public class Palindrome {
             System.out.println("The given string is not a palindrome using reversing string method");
     }
     public static void main(String[] args) {
-        Scanner sc =new Scanner(System.in);
+        Scanner scanner =new Scanner(System.in);
         System.out.println("Enter the string: ");
-        String string=sc.nextLine();
+        String string=scanner.nextLine();
         isPalindromeUsingLoop(string);
         isPalindromeUsingRecursion(string,0,string.length()-1);
         isPalindromeUsingReversal(string);
-        sc.close();
+        scanner.close();
     }
 }
 

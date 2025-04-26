@@ -4,13 +4,13 @@ import java.util.*;
 
 class StoreValuesAndSum {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         double[] numbers = new double[10];
         double total = 0.0;
         int index = 0;
 
         while (true) {
-            double input = sc.nextDouble();
+            double input = scanner.nextDouble();
 
             if (input <= 0) {
                 break;

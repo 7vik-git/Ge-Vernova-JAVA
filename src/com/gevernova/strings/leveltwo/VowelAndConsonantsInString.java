@@ -37,7 +37,7 @@ public class VowelAndConsonantsInString {
     }
 
     public static void main(String[] args) {
-        Scanner input=new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Enter a string: ");
         String string=input.nextLine();
         findVowelsAndConsonants(string);

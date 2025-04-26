@@ -29,6 +29,7 @@ public class VotingRequirement {
         }
     }
     public static void main(String[] args) {
+
         displayResult(checkAge(findAges()));
     }
 }

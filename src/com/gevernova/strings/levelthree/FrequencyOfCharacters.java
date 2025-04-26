@@ -32,10 +32,10 @@ public class FrequencyOfCharacters {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a string: ");
-        String string = sc.nextLine();
-        sc.close();
+        String string = scanner.nextLine();
+        scanner.close();
         findCharacterFrequencies(string);
     }
 }

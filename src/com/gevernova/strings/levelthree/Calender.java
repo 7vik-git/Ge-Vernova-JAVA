@@ -42,9 +42,9 @@ public class Calender {
     }
 
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int month=sc.nextInt();
-        int year=sc.nextInt();
+        Scanner scanner =new Scanner(System.in);
+        int month=scanner.nextInt();
+        int year=scanner.nextInt();
         int firstDay=firstDayOfMonth(month,year);
         displayCalendar(firstDay,month,year);
     }

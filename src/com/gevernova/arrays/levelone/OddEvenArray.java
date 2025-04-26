@@ -3,8 +3,8 @@ import java.util.*;
 
 class OddEvenArray {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int number = sc.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
 
         if (number <= 0) {
             System.out.println("Invalid input. Enter a natural number.");

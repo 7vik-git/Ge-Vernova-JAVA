@@ -18,12 +18,12 @@ public class LengthOfString {
         return string.length();
     }
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
+        Scanner scanner =new Scanner(System.in);
         System.out.println("Enter a string:");
-        String string=sc.nextLine();
+        String string=scanner.nextLine();
         System.out.println("Using iteration: "+FindLengthOfString(string));
         System.out.println("Using built-in method: "+LengthOfStringUsingBuiltInMethod(string));
-        sc.close();
+        scanner.close();
     }
 }
 

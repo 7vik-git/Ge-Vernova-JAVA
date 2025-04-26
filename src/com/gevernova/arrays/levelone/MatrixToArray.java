@@ -3,17 +3,17 @@ import java.util.*;
 
 class MatrixToArray {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        int rows = sc.nextInt();
-        int cols = sc.nextInt();
+        int rows = scanner.nextInt();
+        int cols = scanner.nextInt();
 
         int[][] matrix = new int[rows][cols];
         int[] array = new int[rows * cols];
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                matrix[i][j] = sc.nextInt();
+                matrix[i][j] = scanner.nextInt();
             }
         }
 
