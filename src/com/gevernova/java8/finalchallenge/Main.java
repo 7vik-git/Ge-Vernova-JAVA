@@ -13,7 +13,7 @@ public class Main {
         List<String> filteredList = list.stream()
                 .filter(employee -> employee.getSalary()>50000)
                 .map(Employee :: getName)
-                .sorted()
+                .sorted((a,b)->a.length()-b.length())
                 .map(String::toUpperCase)
                 .toList();
         System.out.println(filteredList);
