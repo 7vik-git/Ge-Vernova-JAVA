@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class FirstNonRepeatingChar {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter String : ");
+        System.out.println("Enter StringModifier : ");
         String str = sc.nextLine();
         HashMap<Character,Integer> hmap = new HashMap<>();
         for (int i = 0; i < str.length(); i++) {
