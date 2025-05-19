@@ -1,73 +1,4 @@
 package com.gevernova.generics.warehouse;
-import java.util.ArrayList;
-import java.util.List;
-
-abstract class WarehouseItem {
-    private String name;
-
-    public WarehouseItem(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public abstract String getCategory();
-}
-
-class Electronics extends WarehouseItem {
-    public Electronics(String name) {
-        super(name);
-    }
-
-    @Override
-    public String getCategory() {
-        return "Electronics";
-    }
-}
-
-class Groceries extends WarehouseItem {
-    public Groceries(String name) {
-        super(name);
-    }
-
-    @Override
-    public String getCategory() {
-        return "Groceries";
-    }
-}
-
-class Furniture extends WarehouseItem {
-    public Furniture(String name) {
-        super(name);
-    }
-
-    @Override
-    public String getCategory() {
-        return "Furniture";
-    }
-}
-
-class Storage<T extends WarehouseItem> {
-    private List<T> items = new ArrayList<>();
-
-    public void addItem(T item) {
-        items.add(item);
-    }
-
-    public List<T> getItems() {
-        return items;
-    }
-}
-
-class WarehouseUtils {
-    public static void displayItems(List<? extends WarehouseItem> items) {
-        for (WarehouseItem item : items) {
-            System.out.println(item.getCategory() + ": " + item.getName());
-        }
-    }
-}
 
 public class Main {
     public static void main(String[] args) {
@@ -80,17 +11,16 @@ public class Main {
         groceriesStorage.addItem(new Groceries("Milk"));
 
         Storage<Furniture> furnitureStorage = new Storage<>();
-        furnitureStorage.addItem(new Furniture("Chair"));
         furnitureStorage.addItem(new Furniture("Table"));
+        furnitureStorage.addItem(new Furniture("Chair"));
 
         System.out.println("Displaying Electronics:");
-        WarehouseUtils.displayItems(electronicsStorage.getItems());
+        DisplayUtils.displayAllItems(electronicsStorage.getItems());
 
         System.out.println("\nDisplaying Groceries:");
-        WarehouseUtils.displayItems(groceriesStorage.getItems());
+        DisplayUtils.displayAllItems(groceriesStorage.getItems());
 
         System.out.println("\nDisplaying Furniture:");
-        WarehouseUtils.displayItems(furnitureStorage.getItems());
+        DisplayUtils.displayAllItems(furnitureStorage.getItems());
     }
 }
-
